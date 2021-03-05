@@ -92,6 +92,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         return (HomeController) super.getBController();
     }
 
+    // Stamp coupling. Truyen ca doi tuong dto nhung khong su dung
     protected void setupData(Object dto) throws Exception {
         setBController(new HomeController());
         this.authenticationController = new AuthenticationController();
@@ -133,6 +134,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         addMenuItem(1, "DVD", splitMenuBtnSearch);
         addMenuItem(2, "CD", splitMenuBtnSearch);
     }
+
+    // Common Coupling. Reference to static member SessionInfomation.cartInstance from other module
 
     @Override
     public void show() {
@@ -207,6 +210,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         });
         menuButton.getItems().add(position, menuItem);
     }
+
+    // Common Coupling. Reference to static member SessionInfomation.cartInstance from other module
 
     @Override
     public void update(Observable observable) {

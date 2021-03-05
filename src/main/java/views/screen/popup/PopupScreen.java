@@ -25,6 +25,8 @@ public class PopupScreen extends BaseScreenHandler {
         super(stage, ViewsConfig.POPUP_PATH);
     }
 
+    
+    // Control coupling. Su dung tham so undecorated lam tham so dieu khien
     private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
         PopupScreen popup = new PopupScreen(new Stage());
         if (undecorated) popup.stage.initStyle(StageStyle.UNDECORATED);
