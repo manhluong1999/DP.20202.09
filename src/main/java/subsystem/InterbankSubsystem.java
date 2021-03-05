@@ -40,6 +40,7 @@ public class InterbankSubsystem implements InterbankInterface {
 	 *      String)
 	 */
 	public PaymentTransaction refund(CreditCard card, int amount, String contents) {
+		// StampCoupling - Truyền thừa dữ liệu
 		PaymentTransaction transaction = ctrl.refund(card, amount, contents);
 		return transaction;
 	}

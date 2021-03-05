@@ -68,6 +68,7 @@ public class InterbankPayloadConverter {
                 Integer.parseInt((String) transaction.get("amount")),
                 (String) transaction.get("createdAt"));
 
+        // Vi phạm control coupling vì : Xử dụng câu điều kiện để rẽ nhánh
         switch (trans.getErrorCode()) {
             case "00":
                 break;
