@@ -135,8 +135,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         addMenuItem(2, "CD", splitMenuBtnSearch);
     }
 
-    // Common Coupling. Reference to static member SessionInfomation.cartInstance from other module
-
     @Override
     public void show() {
         if (authenticationController.isAnonymousSession()) {
@@ -210,8 +208,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         });
         menuButton.getItems().add(position, menuItem);
     }
-
-    // Common Coupling. Reference to static member SessionInfomation.cartInstance from other module
 
     @Override
     public void update(Observable observable) {

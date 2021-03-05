@@ -23,8 +23,6 @@ public class Order {
         this.subtotal = 0;
         this.tax = 0;
     }
-
-    // Hoang Van Manh. Common Coupling. Reference to static member SessionInfomation.cartInstance from other module
     
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
