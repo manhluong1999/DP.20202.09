@@ -51,6 +51,7 @@ public class Order {
         return deliveryInfo;
     }
 
+    // Vi phạm Temporal cohesion vì đồng thời tính fees và lấy thông tin 
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
         this.shippingFees = deliveryInfo.calculateShippingFee(this);
