@@ -23,7 +23,7 @@ public class Order {
         this.subtotal = 0;
         this.tax = 0;
     }
-
+    
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
         for (Object object : SessionInformation.cartInstance.getListMedia()) {
@@ -51,6 +51,7 @@ public class Order {
         return deliveryInfo;
     }
 
+    // Vi phạm Temporal cohesion vì đồng thời tính fees và lấy thông tin 
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
         this.shippingFees = deliveryInfo.calculateShippingFee(this);
