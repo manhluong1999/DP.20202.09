@@ -19,6 +19,7 @@ public class App extends Application {
 	@FXML
 	ImageView logo;
 
+	// Coicidental cohesion: init, fade and load content process khong lien quan den nhau
 	@Override
 	public void start(Stage primaryStage) {
 		try {
