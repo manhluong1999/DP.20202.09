@@ -12,7 +12,7 @@ import java.util.*;
  * @author hieud
  *
  */
-public class MyMap extends LinkedHashMap<String, Object> {
+public class MyMap extends LinkedHashMap<String, Object> {  // bad cohesion
 	private static final long serialVersionUID = 1L;
 
 	/**
