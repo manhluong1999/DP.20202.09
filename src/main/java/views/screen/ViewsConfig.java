@@ -10,6 +10,7 @@ import java.util.Locale;
 /**
  * @author
  */
+// check packgage views: khong thay truong hop vi pham cohesion nao them
 public class ViewsConfig {
 
     // static resource
