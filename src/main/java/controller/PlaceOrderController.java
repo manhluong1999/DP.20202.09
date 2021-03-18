@@ -21,6 +21,8 @@ import java.util.regex.Pattern;
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
+
+//SOLID Vi phạm nguyên lý SRP vì class này xử lý cả validate, và tạo Order
 public class PlaceOrderController extends BaseController {
 
     /**
