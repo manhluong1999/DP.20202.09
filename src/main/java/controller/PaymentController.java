@@ -21,6 +21,7 @@ import subsystem.InterbankSubsystem;
  * @author hieud
  *
  */
+//SOLID: Vi phạm OCP vì khi thêm phuowgn thức thanh toán mới sẽ phải thay đổi code ở đây
 public class PaymentController extends BaseController {
 
 	/**
