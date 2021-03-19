@@ -12,7 +12,6 @@ import views.screen.ViewsConfig;
 
 import java.io.IOException;
 
-
 public class PopupScreen extends BaseScreenHandler {
 
     @FXML
@@ -53,6 +52,7 @@ public class PopupScreen extends BaseScreenHandler {
         super.setImage(icon, path);
     }
 
+    // SOLID: khi su dung lop con PopUp voi phuong thuc show thi man se tu dong sau 1 thoi gian
     public void show(Boolean autoClose) {
         super.show();
         if (autoClose) close(0.8);

@@ -11,6 +11,10 @@ import subsystem.interbank.InterbankSubsystemController;
  * @author hieud
  *
  */
+/*
+* SOLID: Đều vi phạm OCP, DIP : Vì mở rộng nhiều phương thức thanh toán
+* Vi phạm ICP: trong method refund luôn trả về null, tức là phương thức không cần tiền vậy ta không cần thiết phải implement nó
+* */
 public class InterbankSubsystem implements InterbankInterface {
 
 	/**

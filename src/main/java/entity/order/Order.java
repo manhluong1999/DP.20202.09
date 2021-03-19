@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+// SOLID: Vi pham OCP khi them RushOrder thi phai modify lai code
 public class Order {
 
     private int shippingFees;
