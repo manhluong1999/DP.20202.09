@@ -14,7 +14,7 @@ import java.util.Map;
  * @author
  */
 /*
-* SOLID: Vi phạm OCP, DIP: - Vấn đề mở rộng thêm các phương thức thanh toán mới, các lớp high lever bị phụ thuộc các lớp dưới, chỉ sử dụng lớp cụ thể CreditCard
+* SOLID: Vi pham OCP, DIP: - Váº¥n Ä‘á»� má»Ÿ rá»™ng thĂªm cĂ¡c phÆ°Æ¡ng thá»©c thanh toĂ¡n má»›i, cĂ¡c lá»›p high lever bá»‹ phá»¥ thuá»™c cĂ¡c lá»›p dÆ°á»›i, chá»‰ sá»­ dá»¥ng lá»›p cá»¥ thá»ƒ CreditCard
 * */
 public class InterbankPayloadConverter {
 
@@ -25,7 +25,7 @@ public class InterbankPayloadConverter {
      * @param contents
      * @return
      */
-    // DIP giao tiếp thông qua các lớp abstraction
+    // DIP giao tiáº¿p thĂ´ng qua cĂ¡c lá»›p abstraction
     String convertToRequestPayload(CreditCard card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
 
@@ -52,6 +52,7 @@ public class InterbankPayloadConverter {
      * @param responseText
      * @return
      */
+    // SOLID: Vi pham OCP - khi muon chinh sua loai du lieu dau ra cua cac bien se phai sua lai code nhieu
     PaymentTransaction extractPaymentTransaction(String responseText) {
         MyMap response = convertJSONResponse(responseText);
 
@@ -72,7 +73,7 @@ public class InterbankPayloadConverter {
                 Integer.parseInt((String) transaction.get("amount")),
                 (String) transaction.get("createdAt"));
 
-        // Vi phạm control coupling vì : Xử dụng câu điều kiện để rẽ nhánh
+        // Vi pháº¡m control coupling vĂ¬ : Xá»­ dá»¥ng cĂ¢u Ä‘iá»�u kiá»‡n Ä‘á»ƒ ráº½ nhĂ¡nh
         switch (trans.getErrorCode()) {
             case "00":
                 break;
