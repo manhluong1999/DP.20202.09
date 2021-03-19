@@ -22,7 +22,11 @@ import java.util.regex.Pattern;
  * @author nguyenlm
  */
 
-//SOLID Vi phạm nguyên lý SRP vì class này xử lý cả validate, và tạo Order
+/*
+* SOLID:
+* - Vi phạm SRP: Class PlaceOderController phải xủ lý quá nhiều nhiệm vụ validate vừa xử lý hóa đơn, xử lý oder
+* Ngoài ra về cohesion - Temporal Cohesion: Các methods không liên quan gì đến nhau đặt trong cùng class chỉ ý nghĩa liên quan đến nhau về mặt thời gian
+* */
 public class PlaceOrderController extends BaseController {
 
     /**
@@ -84,6 +88,7 @@ public class PlaceOrderController extends BaseController {
    * @throws IOException
    */
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
+
         if (validatePhoneNumber(info.get("phone"))
         || validateName(info.get("name"))
         || validateAddress(info.get("address"))) return;

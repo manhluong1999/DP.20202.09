@@ -81,6 +81,11 @@ public class PaymentController extends BaseController {
 	 * @return {@link Map Map} represent the payment result with a
 	 *         message.
 	 */
+	/*
+	* SOLID :
+	* - Vi phạm nguyên tắc OCP, DIP: Nếu mở rộng nhiều phương thức thanh toán ngoài creditCard thì code payOder phải chỉnh sửa
+	* */
+
 	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) {
 		Map<String, String> result = new Hashtable<String, String>();

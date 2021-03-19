@@ -13,6 +13,9 @@ import java.util.Map;
 /**
  * @author
  */
+/*
+* SOLID: Vi phạm OCP, DIP: - Vấn đề mở rộng thêm các phương thức thanh toán mới, các lớp high lever bị phụ thuộc các lớp dưới, chỉ sử dụng lớp cụ thể CreditCard
+* */
 public class InterbankPayloadConverter {
 
     /**
@@ -22,6 +25,7 @@ public class InterbankPayloadConverter {
      * @param contents
      * @return
      */
+    // DIP giao tiếp thông qua các lớp abstraction
     String convertToRequestPayload(CreditCard card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
 

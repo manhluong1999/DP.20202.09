@@ -18,6 +18,11 @@ import java.util.Objects;
 /**
  * @author
  */
+
+/**
+ * SOLID
+ * 1. 
+ */
 public class AuthenticationController extends BaseController {
 
     public boolean isAnonymousSession() {

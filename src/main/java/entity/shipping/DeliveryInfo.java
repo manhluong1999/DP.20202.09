@@ -3,6 +3,7 @@ package entity.shipping;
 import entity.order.Order;
 import org.example.DistanceCalculator;
 
+// Vi phạm tính đóng
 public class DeliveryInfo {
 
     protected String name;
