@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+// SOLID: Vi pham OCP khi them RushOrder thi phai modify lai code
 public class Order {
 
     private int shippingFees;
@@ -51,7 +52,7 @@ public class Order {
         return deliveryInfo;
     }
 
-    // Vi phạm Temporal cohesion vì đồng thời tính fees và lấy thông tin 
+    // Vi pháº¡m Temporal cohesion vĂ¬ Ä‘á»“ng thá»�i tĂ­nh fees vĂ  láº¥y thĂ´ng tin 
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
         this.shippingFees = deliveryInfo.calculateShippingFee(this);

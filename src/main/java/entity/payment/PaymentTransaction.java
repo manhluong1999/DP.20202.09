@@ -8,6 +8,7 @@ public class PaymentTransaction {
 	private int amount;
 	private String createdAt;
 	
+	// SOLID: Vi pham DOP - vi class PaymentTransaction chi ho tro CreditCard nen khi co loai Card moi se phai sua code
 	public PaymentTransaction(String errorCode, CreditCard card, String transactionId, String transactionContent,
                               int amount, String createdAt) {
 		super();
