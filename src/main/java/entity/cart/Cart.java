@@ -48,7 +48,7 @@ public class Cart {
         }
         return total;
     }
-
+//SOLID:Vi phạm SRP vì Cart không nên chịu trách nhiệm checkAvailabilityOfProduct()
     public void checkAvailabilityOfProduct() throws SQLException{
         boolean allAvailable = true;
         for (Object object : lstCartItem) {

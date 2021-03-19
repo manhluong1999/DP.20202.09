@@ -50,7 +50,7 @@ public class Order {
     public DeliveryInfo getDeliveryInfo() {
         return deliveryInfo;
     }
-
+    //SOLID: vi phạm DIP, đồng thời OCP vì khi thay đổi cách thức tính phí ship phụ thuộc vào hàm calculateShippingFee ở class DeliveryInfo
     // Vi phạm Temporal cohesion vì đồng thời tính fees và lấy thông tin 
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
