@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 /*
 *  Coincidental Cohesion: Vì các phần thử trong lớp không liên quan đến nhau
 * */
-
 //DP: Singleton pattern vi SessionInformation chi nen duoc tao ra chi 1 instance trong qua trinh chay chuong trinh
 public class SessionInformation {
 
