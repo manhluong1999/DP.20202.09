@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d5cdb911-4881-4355-9a1d-29aac69e3944" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/InterbankSubsystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/InterbankSubsystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankSubsystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankSubsystemController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +42,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -68,7 +66,7 @@
       <workItem from="1616157307320" duration="2634000" />
       <workItem from="1616667829109" duration="81000" />
       <workItem from="1616813484850" duration="34000" />
-      <workItem from="1616942415517" duration="1420000" />
+      <workItem from="1616942415517" duration="2704000" />
     </task>
     <servers />
   </component>
