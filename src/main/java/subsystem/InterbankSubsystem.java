@@ -16,7 +16,7 @@ import subsystem.interbank.InterbankSubsystemController;
 * Vi phạm ICP: trong method refund luôn trả về null, tức là phương thức không cần tiền vậy ta không cần thiết phải implement nó
 * */
 	/*
-	DP: Nên là Singleton
+	DP: Nên là Singleton vì đây lớp giao tiếp Banking : Subteam 2
 	 */
 public class InterbankSubsystem implements InterbankInterface {
 
@@ -35,10 +35,12 @@ public class InterbankSubsystem implements InterbankInterface {
 	}
 
 	public static synchronized InterbankSubsystem getInstance() {
+
 		if(interbankSubsystem == null){
 			interbankSubsystem = new InterbankSubsystem();
 		}
 		return interbankSubsystem;
+
 	}
 
 	/**
