@@ -3,6 +3,9 @@ package subsystem.interbank;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 
+/*
+* Singleton
+* */
 public class InterbankSubsystemController {
 
 	private static InterbankPayloadConverter interbankPayloadConverter = new InterbankPayloadConverter();

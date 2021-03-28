@@ -15,19 +15,30 @@ import subsystem.interbank.InterbankSubsystemController;
 * SOLID: Đều vi phạm OCP, DIP : Vì mở rộng nhiều phương thức thanh toán
 * Vi phạm ICP: trong method refund luôn trả về null, tức là phương thức không cần tiền vậy ta không cần thiết phải implement nó
 * */
+	/*
+	DP: Nên là Singleton
+	 */
 public class InterbankSubsystem implements InterbankInterface {
 
 	/**
 	 * Represent the controller of the subsystem
 	 */
-	private InterbankSubsystemController ctrl;
+	private InterbankSubsystemController ctrl = new InterbankSubsystemController();
+
+	private static volatile InterbankSubsystem interbankSubsystem = null;
 
 	/**
 	 * Initializes a newly created {@code InterbankSubsystem} object so that it
 	 * represents an Interbank subsystem.
 	 */
-	public InterbankSubsystem() {
-		this.ctrl = new InterbankSubsystemController();
+	private InterbankSubsystem() {
+	}
+
+	public static synchronized InterbankSubsystem getInstance() {
+		if(interbankSubsystem == null){
+			interbankSubsystem = new InterbankSubsystem();
+		}
+		return interbankSubsystem;
 	}
 
 	/**
