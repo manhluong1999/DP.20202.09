@@ -3,7 +3,6 @@ package entity.shipping;
 import entity.order.Order;
 import org.example.DistanceCalculator;
 
-// Vi phạm tính đóng
 public class DeliveryInfo {
 
     protected String name;
@@ -21,7 +20,6 @@ public class DeliveryInfo {
         this.shippingInstructions = shippingInstructions;
         this.distanceCalculator = distanceCalculator;
     }
-
     //stamp coupling vì truyền cả object Order mà ko sử dụng attribute nào
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
