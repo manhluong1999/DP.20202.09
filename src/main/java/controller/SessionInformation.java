@@ -21,7 +21,6 @@ public class SessionInformation {
 	private static SessionInformation instance;
 
 	private SessionInformation() {
-		cartInstance = Cart.getInstance();
 	}
 
 	public static SessionInformation getInstance() {
