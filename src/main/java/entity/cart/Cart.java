@@ -6,13 +6,20 @@ import java.util.List;
 
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
-
+//Có thể áp dụng Singleton ở class Cart vì nghiệp vụ bán hàng chỉ cần 1 giỏ hàng
 public class Cart {
+    private static Cart _instance;
     
     private List<CartItem> lstCartItem;
 
-    public Cart() {
+    private Cart() {
         lstCartItem = new ArrayList<>();
+    }
+    public static Cart getInstance() {
+    	if(null == _instance) {
+    		_instance = new Cart();
+    	}
+    	return _instance;
     }
 
     public void addCartMedia(CartItem cm){
@@ -48,7 +55,7 @@ public class Cart {
         }
         return total;
     }
-
+//SOLID:Vi phạm SRP vì Cart không nên chịu trách nhiệm checkAvailabilityOfProduct()
     public void checkAvailabilityOfProduct() throws SQLException{
         boolean allAvailable = true;
         for (Object object : lstCartItem) {
