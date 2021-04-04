@@ -21,6 +21,7 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
     //stamp coupling vì truyền cả object Order mà ko sử dụng attribute nào
+    // khi thay doi thu vien thi phai sua code nen ta ap dung Factory Pattern o day de tranh OCP
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);
