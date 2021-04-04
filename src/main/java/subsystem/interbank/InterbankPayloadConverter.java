@@ -3,6 +3,7 @@ package subsystem.interbank;
 import common.exception.*;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
+import entity.payment.PaymentType;
 import utils.MyMap;
 
 import java.text.DateFormat;
@@ -26,7 +27,7 @@ public class InterbankPayloadConverter {
      * @return
      */
     // DIP giao tiáº¿p thĂ´ng qua cĂ¡c lá»›p abstraction
-    String convertToRequestPayload(CreditCard card, int amount, String contents) {
+    String convertToRequestPayload(PaymentType card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
 
         try {
@@ -59,6 +60,8 @@ public class InterbankPayloadConverter {
         if (response == null)
             return null;
         MyMap transaction = (MyMap) response.get("transaction");
+
+        // Đoạn này bị vi phạm control nếu mà truyền kiểu card xong để tạo card tương ứng . Nhóm vẫn đang suy nghĩ,
         CreditCard card = new CreditCard(
                 (String) transaction.get("cardCode"),
                 (String) transaction.get("owner"),

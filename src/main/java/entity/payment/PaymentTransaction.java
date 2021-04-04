@@ -2,14 +2,14 @@ package entity.payment;
 
 public class PaymentTransaction {
 	private String errorCode;
-	private CreditCard card;
+	private PaymentType card;
 	private String transactionId;
 	private String transactionContent;
 	private int amount;
 	private String createdAt;
 	
 	// SOLID: Vi pham DOP - vi class PaymentTransaction chi ho tro CreditCard nen khi co loai Card moi se phai sua code
-	public PaymentTransaction(String errorCode, CreditCard card, String transactionId, String transactionContent,
+	public PaymentTransaction(String errorCode, PaymentType card, String transactionId, String transactionContent,
                               int amount, String createdAt) {
 		super();
 		this.errorCode = errorCode;
