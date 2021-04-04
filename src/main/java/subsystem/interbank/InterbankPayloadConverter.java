@@ -31,7 +31,11 @@ public class InterbankPayloadConverter {
         Map<String, Object> transaction = new MyMap();
 
         try {
-            transaction.putAll(MyMap.toMyMap(card));
+            Map<String, Object> card_map = new MyMap();
+
+            card_map.putAll(MyMap.toMyMap(card));
+            // Dữ liệu Payload phải định nghĩa kiểu card gì đã được truyền đi >????
+            transaction.put("card", card_map);
         } catch (IllegalArgumentException | IllegalAccessException e) {
             // TODO Auto-generated catch block
             throw new InvalidCardException();
@@ -61,7 +65,8 @@ public class InterbankPayloadConverter {
             return null;
         MyMap transaction = (MyMap) response.get("transaction");
 
-        // Đoạn này bị vi phạm control nếu mà truyền kiểu card xong để tạo card tương ứng . Nhóm vẫn đang suy nghĩ,
+        // Cụ thể card nào đã được truyển đi
+
         CreditCard card = new CreditCard(
                 (String) transaction.get("cardCode"),
                 (String) transaction.get("owner"),
