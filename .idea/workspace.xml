@@ -19,15 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cdb911-4881-4355-9a1d-29aac69e3944" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PlaceOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PlaceOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SessionInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SessionInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/shipping/DeliveryInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/shipping/DeliveryInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankPayloadConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankPayloadConverter.java" afterDir="false" />
-    </list>
+    <list default="true" id="d5cdb911-4881-4355-9a1d-29aac69e3944" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
