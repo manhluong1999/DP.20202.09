@@ -4,6 +4,7 @@ import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
+import entity.payment.PaymentType;
 
 /**
  * The {@code InterbankInterface} class is used to communicate with the
@@ -41,7 +42,7 @@ public interface InterbankInterface {
 	 * @throws UnrecognizedException if responded with an unknown error code or
 	 *                               something goes wrong
 	 */
-	public abstract PaymentTransaction refund(CreditCard card, int amount, String contents)
+	public abstract PaymentTransaction refund(PaymentType card, int amount, String contents)
 			throws PaymentException, UnrecognizedException;
 
 }

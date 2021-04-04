@@ -2,6 +2,7 @@ package subsystem;
 
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
+import entity.payment.PaymentType;
 import subsystem.interbank.InterbankSubsystemController;
 
 /***
@@ -40,10 +41,10 @@ public class InterbankSubsystem implements InterbankInterface {
 	}
 
 	/**
-	 * @see InterbankInterface#refund(CreditCard, int,
+	 * @see InterbankInterface#refund(PaymentType, int,
 	 *      String)
 	 */
-	public PaymentTransaction refund(CreditCard card, int amount, String contents) {
+	public PaymentTransaction refund(PaymentType card, int amount, String contents) {
 		// StampCoupling - Truyền thừa dữ liệu
 		PaymentTransaction transaction = ctrl.refund(card, amount, contents);
 		return transaction;
