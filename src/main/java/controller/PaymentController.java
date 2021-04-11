@@ -47,7 +47,7 @@ public class PaymentController extends BaseController {
 	 */
 	private String getExpirationDate(String date) throws InvalidCardException {
 		String[] strs = date.split("/");
-		if (strs.length != 2) {
+		if (strs.length != ConstantsUtilController.DATE_FORMAT_SIZE) {
 			throw new InvalidCardException();
 		}
 
@@ -56,12 +56,12 @@ public class PaymentController extends BaseController {
 		int year = -1;
 
 		try {
-			month = Integer.parseInt(strs[0]);
-			year = Integer.parseInt(strs[1]);
-			if (month < 1 || month > 12 || year < Calendar.getInstance().get(Calendar.YEAR) % 100 || year > 100) {
+			month = Integer.parseInt(strs[ConstantsUtilController.INDEX_OF_MONTH]);
+			year = Integer.parseInt(strs[ConstantsUtilController.INDEX_OF_YEAR]);
+			if (month < ConstantsUtilController.MIN_MONTH || month > ConstantsUtilController.MAX_MONTH || year < Calendar.getInstance().get(Calendar.YEAR) % ConstantsUtilController.YEAR || year > ConstantsUtilController.YEAR) {
 				throw new InvalidCardException();
 			}
-			expirationDate = strs[0] + strs[1];
+			expirationDate = strs[ConstantsUtilController.INDEX_OF_MONTH] + strs[ConstantsUtilController.INDEX_OF_YEAR];
 
 		} catch (Exception ex) {
 			throw new InvalidCardException();
@@ -90,7 +90,7 @@ public class PaymentController extends BaseController {
 	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) {
 		Map<String, String> result = new Hashtable<String, String>();
-		result.put("RESULT", "PAYMENT FAILED!");
+		result.put(ConstantsUtilController.RESULT, ConstantsUtilController.PAYMENT_FAIL);
 		try {
 			this.card = new CreditCard(
 					cardNumber,
@@ -101,10 +101,10 @@ public class PaymentController extends BaseController {
 			this.interbank = new InterbankSubsystem();
 			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
 
-			result.put("RESULT", "PAYMENT SUCCESSFUL!");
-			result.put("MESSAGE", "You have successfully paid the order!");
+			result.put(ConstantsUtilController.RESULT, ConstantsUtilController.PAYMENT_SUCCESS);
+			result.put(ConstantsUtilController.MESSAGE, ConstantsUtilController.MESSAGE_SUCCESS);
 		} catch (PaymentException | UnrecognizedException ex) {
-			result.put("MESSAGE", ex.getMessage());
+			result.put(ConstantsUtilController.MESSAGE, ex.getMessage());
 		}
 		return result;
 	}
