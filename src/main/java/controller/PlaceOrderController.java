@@ -96,8 +96,8 @@ public class PlaceOrderController extends BaseController {
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() != 10) return false;
-        if (!phoneNumber.startsWith("0")) return false;
+        if (phoneNumber.length() != ConstantsUtilController.PHONE_MAX_LENGTH) return false;
+        if (!phoneNumber.startsWith(ConstantsUtilController.PHONE_START)) return false;
         try {
             Integer.parseInt(phoneNumber);
         } catch (NumberFormatException e) {
@@ -108,7 +108,7 @@ public class PlaceOrderController extends BaseController {
     
     public boolean validateName(String name) {
         if (Objects.isNull(name)) return false;
-        String patternString = "^[a-zA-Z\\s]*$";
+        String patternString = ConstantsUtilController.PATTERN_VALID_NAME;
         Pattern pattern = Pattern.compile(patternString);
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();
@@ -116,7 +116,7 @@ public class PlaceOrderController extends BaseController {
     
     public boolean validateAddress(String address) {
         if (Objects.isNull(address)) return false;
-        String patternString = "^[a-zA-Z\\s]*$";
+        String patternString = ConstantsUtilController.PATTERN_VALID_ADDRESS;
         Pattern pattern = Pattern.compile(patternString);
         Matcher matcher = pattern.matcher(address);
         return matcher.matches();

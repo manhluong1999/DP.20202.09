@@ -64,6 +64,7 @@ public class AuthenticationController extends BaseController {
      * @param message - plain text as {@link String String}.
      * @return cipher text as {@link String String}.
      */
+    // Here we need format name some parameter to const
     private String md5(String message) {
         String digest = null;
         try {
