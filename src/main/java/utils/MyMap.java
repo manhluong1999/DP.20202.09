@@ -31,8 +31,8 @@ public class MyMap extends LinkedHashMap<String, Object> {  // bad cohesion
 		Iterator<Map.Entry<String, Object>> it = entrySet().iterator();
 
 		sb.append('{');
-		for (int i = 0;; i++) {
-			Map.Entry<String, Object> e = it.next();
+		for (int i = 0;; i++) {   // not reveal intent name
+			Map.Entry<String, Object> e = it.next(); // not reveal intent name
 			String key = e.getKey();
 			Object value = e.getValue();
 			sb.append('"' + key.toString() + '"');
@@ -106,7 +106,7 @@ public class MyMap extends LinkedHashMap<String, Object> {  // bad cohesion
 			return new String();
 		}
 
-		int i = idx + 1;
+		int i = idx + 1; // not reveal intent name
 		StringBuilder sb = new StringBuilder();
 		do {
 			sb.append(str.charAt(i));
@@ -139,7 +139,7 @@ public class MyMap extends LinkedHashMap<String, Object> {  // bad cohesion
 
 		MyMap root = new MyMap();
 		StringBuilder sb = new StringBuilder();
-		int i = idx;
+		int i = idx;  // not reveal intent name
 		sb.append(str.charAt(i));
 
 		i++;
