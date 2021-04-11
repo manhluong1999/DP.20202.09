@@ -74,9 +74,9 @@ public class MediaHandler extends FXMLScreenHandler {
 	private void setMediaInfo() {
 		title.setText(cartItem.getMedia().getTitle());
 		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));
-		File file = new File(cartItem.getMedia().getImageURL());
-		Image im = new Image(file.toURI().toString());
-		image.setImage(im);
+		File fileItem = new File(cartItem.getMedia().getImageURL());
+		Image imgItem = new Image(fileItem.toURI().toString());
+		image.setImage(imgItem);
 		image.setPreserveRatio(false);
 		image.setFitHeight(110);
 		image.setFitWidth(92);

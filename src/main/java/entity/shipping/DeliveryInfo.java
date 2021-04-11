@@ -1,6 +1,7 @@
 package entity.shipping;
 
 import entity.order.Order;
+import entity.shipping.ShippingConfigs;
 import org.example.DistanceCalculator;
 
 public class DeliveryInfo {
@@ -11,7 +12,7 @@ public class DeliveryInfo {
     protected String address;
     protected String shippingInstructions;
     protected DistanceCalculator distanceCalculator;
-
+    
     public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions, DistanceCalculator distanceCalculator) {
         this.name = name;
         this.phone = phone;
@@ -23,7 +24,7 @@ public class DeliveryInfo {
     //stamp coupling vì truyền cả object Order mà ko sử dụng attribute nào
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
-        return (int) (distance * 1.2);
+        return (int) (distance * ShippingConfigs.CONST_FOR_SHIPPINGFEE);
     }
 
     public String getName() {
