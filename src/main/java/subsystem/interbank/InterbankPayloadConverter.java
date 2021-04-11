@@ -75,21 +75,21 @@ public class InterbankPayloadConverter {
 
         // Vi pháº¡m control coupling vĂ¬ : Xá»­ dá»¥ng cĂ¢u Ä‘iá»�u kiá»‡n Ä‘á»ƒ ráº½ nhĂ¡nh
         switch (trans.getErrorCode()) {
-            case "00":
+            case InterbankConfigs.NOTHING:
                 break;
-            case "01":
+            case InterbankConfigs.INVALID_CARD:
                 throw new InvalidCardException();
-            case "02":
+            case InterbankConfigs.NOT_ENOUGH_BALANCE:
                 throw new NotEnoughBalanceException();
-            case "03":
+            case InterbankConfigs.INTERNAL_SERVER_ERROR:
                 throw new InternalServerErrorException();
-            case "04":
+            case InterbankConfigs.SUSPICIOUS_TRANSACTION:
                 throw new SuspiciousTransactionException();
-            case "05":
+            case InterbankConfigs.NOT_ENOUGH_TRANSACTION_INFO:
                 throw new NotEnoughTransactionInfoException();
-            case "06":
+            case InterbankConfigs.INVALID_VERSION:
                 throw new InvalidVersionException();
-            case "07":
+            case InterbankConfigs.INVALID_TRANSACTION_AMOUNT:
                 throw new InvalidTransactionAmountException();
             default:
                 throw new UnrecognizedException();
