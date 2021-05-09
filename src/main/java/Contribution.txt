@@ -1,0 +1,3 @@
+#### Bài tập Clean Code : MeaningFullName
+Nhóm 1: Hoàng Văn Mạnh, Lương Tiến Mạnh
+Nhóm 2: Hoàng Trọng Minh, Đỗ Hoàng Nam
