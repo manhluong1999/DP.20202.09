@@ -57,13 +57,4 @@ public class AuthenticationController extends BaseController {
         SessionInformation.expiredTime = null;
     }
 
-    /**
-     * Return a {@link String String} that represents the cipher text
-     * encrypted by md5 algorithm.
-     *
-     * @param message - plain text as {@link String String}.
-     * @return cipher text as {@link String String}.
-     */
-    
-
 }
