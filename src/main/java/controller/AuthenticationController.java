@@ -43,7 +43,7 @@ public class AuthenticationController extends BaseController {
 
     public void login(String email, String password) throws Exception {
         try {
-            User user = new UserDAO().authenticate(email, md5(password));
+            User user = new UserDAO().authenticate(email, Utils.md5(password));
             if (Objects.isNull(user)) throw new FailLoginException();
             SessionInformation.mainUser = user;
             SessionInformation.expiredTime = LocalDateTime.now().plusHours(24);
@@ -55,32 +55,6 @@ public class AuthenticationController extends BaseController {
     public void logout() {
         SessionInformation.mainUser = null;
         SessionInformation.expiredTime = null;
-    }
-
-    /**
-     * Return a {@link String String} that represents the cipher text
-     * encrypted by md5 algorithm.
-     *
-     * @param message - plain text as {@link String String}.
-     * @return cipher text as {@link String String}.
-     */
-    // Here we need format name some parameter to const
-    private String md5(String message) {
-        String digest = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] hash = md.digest(message.getBytes(StandardCharsets.UTF_8));
-            // converting byte array to Hexadecimal String
-            StringBuilder sb = new StringBuilder(2 * hash.length);
-            for (byte b : hash) {
-                sb.append(String.format("%02x", b & 0xff));
-            }
-            digest = sb.toString();
-        } catch (NoSuchAlgorithmException ex) {
-            Utils.getLogger(Utils.class.getName());
-            digest = "";
-        }
-        return digest;
     }
 
 }
