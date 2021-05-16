@@ -18,7 +18,8 @@ public class CreditCard implements PaymentStrategy {
         this.cvvCode = cvvCode;
     }
     
+    @Override
     public void pay(int amount) {
-    	
+    	System.out.println(amount + "paid using Credit Card");
     }
 }
