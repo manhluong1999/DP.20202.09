@@ -3,7 +3,7 @@ package entity.payment;
 /**
  * @author
  */
-public class CreditCard {
+public class CreditCard implements PaymentStrategy {
 
     private String cardCode;
     private String owner;
@@ -11,9 +11,14 @@ public class CreditCard {
     protected int cvvCode;
 
     public CreditCard(String cardCode, String owner, String dateExpired, int cvvCode) {
-        this.cardCode = cardCode;
+        super();
+    	this.cardCode = cardCode;
         this.owner = owner;
         this.dateExpired = dateExpired;
         this.cvvCode = cvvCode;
+    }
+    
+    public void pay(int amount) {
+    	
     }
 }
