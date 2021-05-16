@@ -2,6 +2,7 @@ package subsystem.interbank;
 
 import common.exception.*;
 import entity.payment.CreditCard;
+import entity.payment.ICard;
 import entity.payment.PaymentTransaction;
 import utils.MyMap;
 
@@ -26,7 +27,7 @@ public class InterbankPayloadConverter {
      * @return
      */
     // DIP giao tiáº¿p thĂ´ng qua cĂ¡c lá»›p abstraction
-    String convertToRequestPayload(CreditCard card, int amount, String contents) {
+    String convertToRequestPayload(ICard card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
 
         try {
@@ -67,11 +68,13 @@ public class InterbankPayloadConverter {
 
         PaymentTransaction trans = new PaymentTransaction(
                 (String) response.get("errorCode"),
-                card,
                 (String) transaction.get("transactionId"),
                 (String) transaction.get("transactionContent"),
                 Integer.parseInt((String) transaction.get("amount")),
                 (String) transaction.get("createdAt"));
+
+        // StrategyPattern
+        trans.setCard(card);
 
         // Vi pháº¡m control coupling vĂ¬ : Xá»­ dá»¥ng cĂ¢u Ä‘iá»�u kiá»‡n Ä‘á»ƒ ráº½ nhĂ¡nh
         switch (trans.getErrorCode()) {

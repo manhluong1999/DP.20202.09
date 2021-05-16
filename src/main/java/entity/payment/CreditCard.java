@@ -3,7 +3,10 @@ package entity.payment;
 /**
  * @author
  */
-public class CreditCard {
+/**
+ * StrategyPattern
+ */
+public class CreditCard extends ICard{
 
     private String cardCode;
     private String owner;
