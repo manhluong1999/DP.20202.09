@@ -22,27 +22,6 @@
     <list default="true" id="d5cdb911-4881-4355-9a1d-29aac69e3944" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/05-Programming.iml" beforeDir="false" afterPath="$PROJECT_DIR$/05-Programming.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PlaceOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PlaceOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SessionInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SessionInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ViewCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ViewCartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/cart/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/cart/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/cart/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/cart/CartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/db/AIMSDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/db/AIMSDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/media/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/media/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/media/CD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/media/CD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/media/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/media/DVD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/media/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/media/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/order/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/payment/PaymentTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/payment/PaymentTransaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/shipping/DeliveryInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/shipping/DeliveryInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/InterbankSubsystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/InterbankSubsystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankBoundary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankConfigs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankPayloadConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankPayloadConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankSubsystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subsystem/interbank/InterbankSubsystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/screen/cart/MediaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/screen/cart/MediaHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +37,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -102,7 +82,8 @@
       <workItem from="1616136994699" duration="35000" />
       <workItem from="1616157307320" duration="1813000" />
       <workItem from="1621619076566" duration="146000" />
-      <workItem from="1621619230482" duration="18704000" />
+      <workItem from="1621619230482" duration="19085000" />
+      <workItem from="1621687783234" duration="48000" />
     </task>
     <servers />
   </component>
@@ -133,25 +114,25 @@
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1614998463585" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1616137028186" />
     <state x="-1234" y="211" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621619356362" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1621683837838">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1621687761881">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621683837838" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621687761881" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621678106851" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1621683837838">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1621687761881">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621683837838" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621687761881" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621678106851" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1621683837838">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1621687761881">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621683837838" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621687761881" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621678106850" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1621683837838">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1621687761881">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621683837838" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621687761881" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621678106851" />
     <state x="2294" y="85" key="Maven.ArtifactSearchDialog" timestamp="1616060994003">
       <screen x="1920" y="0" width="1920" height="1040" />
