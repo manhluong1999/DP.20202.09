@@ -1,17 +1,16 @@
 package controller;
 
-import java.util.Calendar;
-import java.util.Hashtable;
-import java.util.Map;
-
 import common.exception.InvalidCardException;
 import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
-import entity.cart.Cart;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
+
+import java.util.Calendar;
+import java.util.Hashtable;
+import java.util.Map;
 
 
 /**
@@ -21,7 +20,28 @@ import subsystem.InterbankSubsystem;
  * @author hieud
  *
  */
-//SOLID: Vi phạm OCP vì khi thêm phuowgn thức thanh toán mới sẽ phải thay đổi code ở đây
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: SOLID - OCP, DIP
+ * Reason: Khi thêm các ngân hàng mới (bank) , các loại thẻ mới (card) lớp payOrder phải modified và Class giao tiếp qua AbstractClass or Interface
+ * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject_2: Cohesion - Procedural
+ * Reason_2: Các hàm getExpirationDate() được đặt trong class để thực hiện method payOrder() mà về chức năng chúng không liên quan đến nhau
+ * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject_2: Code Smell
+ * Reason_2: Các number nên thay bằng các enum parameter dễ kiển soát (Sự thay đổi sẽ được comment ở dưới)
+ * */
+
 public class PaymentController extends BaseController {
 
 	/**
@@ -45,6 +65,10 @@ public class PaymentController extends BaseController {
 	 * @throws InvalidCardException - if the string does not represent a valid date
 	 *                              in the expected format
 	 */
+	/*
+	*
+	* SmellCode
+	* */
 	private String getExpirationDate(String date) throws InvalidCardException {
 		String[] strs = date.split("/");
 		if (strs.length != 2) {
@@ -82,11 +106,10 @@ public class PaymentController extends BaseController {
 	 * @return {@link Map Map} represent the payment result with a
 	 *         message.
 	 */
-	/*
-	* SOLID :
-	* - Vi phạm nguyên tắc OCP, DIP: Nếu mở rộng nhiều phương thức thanh toán ngoài creditCard thì code payOder phải chỉnh sửa
-	* */
 
+	/*
+	 * SOLID
+	 * */
 	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) {
 		Map<String, String> result = new Hashtable<String, String>();

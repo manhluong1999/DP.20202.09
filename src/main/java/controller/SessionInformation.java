@@ -8,9 +8,7 @@ import java.time.LocalDateTime;
 /**
  * @author
  */
-/*
-*  Coincidental Cohesion: Vì các phần thử trong lớp không liên quan đến nhau
-* */
+
 public class SessionInformation {
 
     public static User mainUser;

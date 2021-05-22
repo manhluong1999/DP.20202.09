@@ -13,9 +13,34 @@ import java.util.Map;
 /**
  * @author
  */
+
 /*
-* SOLID: Vi pham OCP, DIP: - Váº¥n Ä‘á»� má»Ÿ rá»™ng thĂªm cĂ¡c phÆ°Æ¡ng thá»©c thanh toĂ¡n má»›i, cĂ¡c lá»›p high lever bá»‹ phá»¥ thuá»™c cĂ¡c lá»›p dÆ°á»›i, chá»‰ sá»­ dá»¥ng lá»›p cá»¥ thá»ƒ CreditCard
-* */
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: DesignPattern - Singleton
+ * Reason: Nên áp dụng singleton
+ * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: Coupling - Control
+ * Reason: Sử dụng Switch case
+ * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: Cohesion - Coincidental
+ * Reason: getToday() không liên quan các method còn lại nên đặt trong common
+ * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: SOLID - OCP, DIP
+ * Reason: Thêm card mới phải sửa lại code, và nên giao tiếp qua interface
+ * */
 public class InterbankPayloadConverter {
 
     /**
@@ -25,7 +50,6 @@ public class InterbankPayloadConverter {
      * @param contents
      * @return
      */
-    // DIP giao tiáº¿p thĂ´ng qua cĂ¡c lá»›p abstraction
     String convertToRequestPayload(CreditCard card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
 
@@ -52,7 +76,6 @@ public class InterbankPayloadConverter {
      * @param responseText
      * @return
      */
-    // SOLID: Vi pham OCP - khi muon chinh sua loai du lieu dau ra cua cac bien se phai sua lai code nhieu
     PaymentTransaction extractPaymentTransaction(String responseText) {
         MyMap response = convertJSONResponse(responseText);
 
@@ -73,7 +96,6 @@ public class InterbankPayloadConverter {
                 Integer.parseInt((String) transaction.get("amount")),
                 (String) transaction.get("createdAt"));
 
-        // Vi pháº¡m control coupling vĂ¬ : Xá»­ dá»¥ng cĂ¢u Ä‘iá»�u kiá»‡n Ä‘á»ƒ ráº½ nhĂ¡nh
         switch (trans.getErrorCode()) {
             case "00":
                 break;

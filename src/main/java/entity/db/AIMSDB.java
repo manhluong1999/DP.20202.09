@@ -8,6 +8,9 @@ import java.util.logging.Logger;
 import java.sql.Connection;
 import utils.*;
 
+/*
+* Subject: DesignPattern - Singleton
+* */
 public class AIMSDB {
 
 	private static Logger LOGGER = Utils.getLogger(Connection.class.getName());

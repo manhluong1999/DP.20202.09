@@ -1,5 +1,14 @@
 package entity.payment;
 
+
+/*
+* Date: 22/05/2021
+* Author: Minh
+* Subject: SOLID - DIP
+* Reason: Khi ta thêm mới một card thì việc refactor lại code là chắc chắn, Do vậy chỉ nên giao tiếp qua interface ở card
+* Solutions: AbstractFactory or StrategyPattern
+* */
+
 public class PaymentTransaction {
 	private String errorCode;
 	private CreditCard card;
@@ -8,7 +17,6 @@ public class PaymentTransaction {
 	private int amount;
 	private String createdAt;
 	
-	// SOLID: Vi pham DOP - vi class PaymentTransaction chi ho tro CreditCard nen khi co loai Card moi se phai sua code
 	public PaymentTransaction(String errorCode, CreditCard card, String transactionId, String transactionContent,
                               int amount, String createdAt) {
 		super();

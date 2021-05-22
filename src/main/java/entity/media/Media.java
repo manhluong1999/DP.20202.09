@@ -110,4 +110,6 @@ public class Media {
         this.type = type;
         return this;
     }
+
+    // add checkAvailabilityOfProduct()
 }

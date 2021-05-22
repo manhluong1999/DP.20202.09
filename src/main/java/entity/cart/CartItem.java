@@ -9,7 +9,6 @@ public class CartItem {
     private int price;
 
     public CartItem(){
-    	//Logical cohesion: do cac thanh phan item, price, quatity khac nhau ve ban chat
     }
 
     public CartItem(Media media, Cart cart, int quantity, int price) {

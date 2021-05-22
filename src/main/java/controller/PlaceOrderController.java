@@ -1,18 +1,15 @@
 package controller;
 
 import common.exception.InvalidDeliveryInfoException;
-import entity.cart.Cart;
-import entity.cart.CartItem;
 import entity.invoice.Invoice;
 import entity.order.Order;
-import entity.order.OrderItem;
 import entity.shipping.DeliveryInfo;
-import entity.shipping.ShippingConfigs;
 import org.example.DistanceCalculator;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Objects;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,10 +20,21 @@ import java.util.regex.Pattern;
  */
 
 /*
-* SOLID:
-* - Vi phạm SRP: Class PlaceOderController phải xủ lý quá nhiều nhiệm vụ validate vừa xử lý hóa đơn, xử lý oder
-* Ngoài ra về cohesion - Temporal Cohesion: Các methods không liên quan gì đến nhau đặt trong cùng class chỉ ý nghĩa liên quan đến nhau về mặt thời gian
+* Date: 22/05/2021
+* Author: Minh
+* Subject_1: Cohesion - Temporal
+* Reason_1: createOrder() and createInvoice() chỉ có ý nghĩa với nhau về mặt thời gian
+* Subject_2: Cohesion - Procedural, Coincidental
+* Reason_2: Các hàm validateString() được đặt trong class để thực hiện method processDeliveryInfo() mà về chức năng chúng không liên quan đến nhau
 * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject_1: SOLID - SRP
+ * Reason_1: PlaceOrderController thực hiện hơn một tác vụ vừa tạo order, invoice, xử lý , validate deliveryInfo
+ * */
+
 public class PlaceOrderController extends BaseController {
 
     /**

@@ -3,6 +3,8 @@ package subsystem.interbank;
 /**
  * @author
  */
+
+
 public class InterbankConfigs {
 
     public static final String GET_BALANCE_URL = "https://ecopark-system-api.herokuapp.com/api/card/balance/118609_group1_2020";

@@ -11,10 +11,29 @@ import subsystem.interbank.InterbankSubsystemController;
  * @author hieud
  *
  */
+
 /*
-* SOLID: Đều vi phạm OCP, DIP : Vì mở rộng nhiều phương thức thanh toán
-* Vi phạm ICP: trong method refund luôn trả về null, tức là phương thức không cần tiền vậy ta không cần thiết phải implement nó
+* Date: 22/05/2021
+* Author: Minh
+* Subject: Cohesion - Communicational
+* Reason: Các param truyền vào payOrder và refund và output, input 2 method này là giống nhau
 * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: SOLID - DIP
+ * Reason: Khi có card mới -> Nên giao tiếp qua interface
+ * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: SOLID - ISP
+ * Reason: Câu chuyện này sảy ra khi cửa hàng chỉ thanh toán mà không trả lại, -> refund sẽ dư thừa
+ * */
+
+
 public class InterbankSubsystem implements InterbankInterface {
 
 	/**
@@ -44,7 +63,6 @@ public class InterbankSubsystem implements InterbankInterface {
 	 *      String)
 	 */
 	public PaymentTransaction refund(CreditCard card, int amount, String contents) {
-		// StampCoupling - Truyền thừa dữ liệu
 		PaymentTransaction transaction = ctrl.refund(card, amount, contents);
 		return transaction;
 	}

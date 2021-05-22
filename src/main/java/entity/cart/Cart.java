@@ -6,7 +6,29 @@ import java.util.List;
 
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
-//Có thể áp dụng Singleton ở class Cart vì nghiệp vụ bán hàng chỉ cần 1 giỏ hàng
+
+/*
+* Date: 22/05/2021
+* Author: Minh
+* Subject: DesignPattern - Singleton
+* Reason: Cart cần 1 instance trong thời gian runtime => áp dụng Singleton
+* */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: SOLID - SRP
+ * Reason: việc checkAvailabilityOfProduct() nên để cho media tự kiểm tra số lượng
+ * */
+
+/*
+ * Date: 22/05/2021
+ * Author: Minh
+ * Subject: Coupling - Stamp
+ * Reason: Method checkMediaInCart() chỉ sự dụng đến mediaId việc truyền cả Media là thừa thãi
+ * */
+
+
 public class Cart {
     private static Cart _instance;
     
@@ -55,7 +77,7 @@ public class Cart {
         }
         return total;
     }
-//SOLID:Vi phạm SRP vì Cart không nên chịu trách nhiệm checkAvailabilityOfProduct()
+
     public void checkAvailabilityOfProduct() throws SQLException{
         boolean allAvailable = true;
         for (Object object : lstCartItem) {
@@ -66,8 +88,7 @@ public class Cart {
         }
         if (!allAvailable) throw new MediaNotAvailableException("Some media not available");
     }
-//stamp coupling vì truyền cả object media mà chỉ sử dụng attribute id
-//check package dao + entity : ko tim thấy trường hợp vi phạm cohesion nào thêm
+
     public CartItem checkMediaInCart(Media media){
         for (CartItem cartItem : lstCartItem) {
             if (cartItem.getMedia().getId() == media.getId()) return cartItem;
