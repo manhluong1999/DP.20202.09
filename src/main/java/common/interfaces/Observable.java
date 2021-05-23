@@ -3,10 +3,10 @@ package common.interfaces;
 /**
  * @author
  */
-public interface Observable {
+public interface Observable<T> {
 
-    void attach(Observer observer);
-    void remove(Observer observer);
+    void attach(T observer);
+    void remove(T observer);
     void notifyObservers();
 
 }

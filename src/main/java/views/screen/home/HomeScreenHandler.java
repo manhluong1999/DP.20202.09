@@ -33,6 +33,7 @@ import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.ViewsConfig;
 import views.screen.cart.CartScreenHandler;
+import views.screen.cart.ObserverCart;
 import views.screen.popup.PopupScreen;
 
 

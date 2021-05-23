@@ -3,15 +3,20 @@ package views.screen.cart;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
 import common.exception.MediaNotAvailableException;
 import common.exception.PlaceOrderException;
+import common.interfaces.Observable;
+import common.interfaces.Observer;
 import controller.PlaceOrderController;
+import controller.SessionInformation;
 import controller.ViewCartController;
 import entity.cart.CartItem;
+import entity.media.Media;
 import entity.order.Order;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,7 +31,7 @@ import views.screen.ViewsConfig;
 import views.screen.popup.PopupScreen;
 import views.screen.shipping.ShippingScreenHandler;
 
-public class CartScreenHandler extends BaseScreenHandler {
+public class CartScreenHandler extends BaseScreenHandler implements ObserverCart {
 	private static Logger LOGGER = Utils.getLogger(CartScreenHandler.class.getName());
 
 	@FXML
@@ -53,9 +58,13 @@ public class CartScreenHandler extends BaseScreenHandler {
 	@FXML
 	private Button btnPlaceOrder;
 
+	private List<MediaHandler> cartItems;
+
 	public CartScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(stage, screenPath);
 		try {
+			System.out.println("=== Created CartScreenHandler ===");
+			setupData();
 			setupFunctionality();
 		} catch (IOException ex) {
 			LOGGER.info(ex.getMessage());
@@ -63,6 +72,23 @@ public class CartScreenHandler extends BaseScreenHandler {
 		} catch (Exception ex) {
 			LOGGER.info(ex.getMessage());
 			PopupScreen.error(ex.getMessage());
+		}
+	}
+
+	// DP - Observer
+	protected void setupData() {
+		try{
+			List medium = SessionInformation.cartInstance.getListMedia();
+			this.cartItems = new ArrayList<>();
+			for (Object object : medium) {
+				CartItem item = (CartItem) object;
+				MediaHandler m = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, item, this);
+				m.attach(this);
+				this.cartItems.add(m);
+			}
+		} catch (IOException e){
+			LOGGER.info("Errors ==> : " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
@@ -89,6 +115,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 			}
 
 		});
+		displayCartWithMediaAvailability();
 	}
 
 	public ViewCartController getBController(){
@@ -107,13 +134,12 @@ public class CartScreenHandler extends BaseScreenHandler {
 		try {
 			// create placeOrderController and process the order
 			PlaceOrderController placeOrderController = new PlaceOrderController();
-			if (placeOrderController.getListCartMedia().size() == 0){
+			if (placeOrderController.getListCartMedia().size() == 0) {
 				PopupScreen.error("You don't have anything to place");
 				return;
 			}
 
 			placeOrderController.placeOrder();
-			
 			// display available media
 			displayCartWithMediaAvailability();
 
@@ -142,7 +168,12 @@ public class CartScreenHandler extends BaseScreenHandler {
 
 	void updateCartAmount(){
 		// calculate subtotal and amount
-		int subtotal = getBController().getCartSubtotal();
+//		int subtotal = 0;
+//		for (Object obj : cartItems) {
+//			CartItem cm = (CartItem) obj;
+//			subtotal += cm.getPrice()*cm.getQuantity();
+//		}
+		int subtotal = SessionInformation.cartInstance.calSubtotal();
 		int vat = (int)((ViewsConfig.PERCENT_VAT/100)*subtotal);
 		int amount = subtotal + vat;
 		LOGGER.info("amount" + amount);
@@ -154,27 +185,50 @@ public class CartScreenHandler extends BaseScreenHandler {
 	}
 	
 	private void displayCartWithMediaAvailability(){
+		System.out.println("====== Display Cart ====");
 		// clear all old cartMedia
 		vboxCart.getChildren().clear();
-
 		// get list media of cart after check availability
-		List lstMedia = getBController().getListCartMedia();
+//		List lstMedia = getBController().getListCartMedia();
 
-		try {
-			for (Object cm : lstMedia) {
+//		try {
+//			for (Object cm : lstMedia) {
+//
+//				// display the attribute of vboxCart media
+//				CartItem cartItem = (CartItem) cm;
+//				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, this);
+//				mediaCartScreen.setCartItem(cartItem);
+//
+//				// add spinner
+//				vboxCart.getChildren().add(mediaCartScreen.getContent());
+//			}
+//			// calculate subtotal and amount
+//			updateCartAmount();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		cartItems.forEach(cartItem -> {
+			vboxCart.getChildren().add(cartItem.getContent());
+		});
+		updateCartAmount();
+	}
 
-				// display the attribute of vboxCart media
-				CartItem cartItem = (CartItem) cm;
-				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, this);
-				mediaCartScreen.setCartItem(cartItem);
+	@Override
+	public void update(Observable observable) {
+		if(observable instanceof MediaHandler) update((MediaHandler) observable);
+	}
 
-				// add spinner
-				vboxCart.getChildren().add(mediaCartScreen.getContent());
-			}
-			// calculate subtotal and amount
-			updateCartAmount();
-		} catch (IOException e) {
-			e.printStackTrace();
+	private void update(MediaHandler mediaHandler) {
+		// Process data update
+		updateCartAmount();
+	}
+
+	@Override
+	public void remove(Observable observable) {
+		if(observable instanceof MediaHandler) {
+			SessionInformation.cartInstance.getListMedia().remove(((MediaHandler) observable).getCartItem());
+			cartItems.remove((MediaHandler) observable);
+			displayCartWithMediaAvailability();
 		}
 	}
 }
