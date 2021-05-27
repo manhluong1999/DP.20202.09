@@ -25,5 +25,6 @@
     <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.7.2" level="project" />
     <orderEntry type="library" name="distance-api-1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="alt-distance-api-1.0-SNAPSHOT" level="project" />
   </component>
 </module>

@@ -18,6 +18,7 @@ import common.interfaces.Observer;
 import controller.*;
 import entity.cart.Cart;
 import entity.cart.CartItem;
+import entity.media.CD;
 import entity.media.Media;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -2,6 +2,8 @@ package controller;
 
 import common.exception.InvalidDeliveryInfoException;
 import entity.invoice.Invoice;
+import entity.media.CD;
+import entity.media.Media;
 import entity.order.Order;
 import entity.shipping.DeliveryInfo;
 import org.example.DistanceCalculator;
@@ -74,7 +76,7 @@ public class PlaceOrderController extends BaseController {
      * @throws InterruptedException
      * @throws IOException
      */
-    public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
+    public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException, SQLException {
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());
         validateDeliveryInfo(info);
