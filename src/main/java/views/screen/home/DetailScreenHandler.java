@@ -17,11 +17,11 @@ public abstract class DetailScreenHandler extends BaseScreenHandler implements O
     @FXML
     protected Button addToCartBtn;
 
-    private List<Observer> observerList;
+    protected List<Observer> observerList;
 
-    private Media media;
+    protected Media media;
 
-    private MediaHandler mediaHandler;
+    protected MediaHandler mediaHandler;
 
     protected DetailScreenHandler(Stage stage, String screenPath, MediaHandler mediaHandler) throws IOException {
         super(stage, screenPath);

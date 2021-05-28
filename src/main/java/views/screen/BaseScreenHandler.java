@@ -12,12 +12,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import utils.Utils;
 import views.screen.home.HomeScreenHandler;
+import views.screen.popup.IOErrorHandler;
 import views.screen.popup.PopupScreen;
 
 public abstract class BaseScreenHandler extends FXMLScreenHandler {
 
 	private static final Logger LOGGER = Utils.getLogger(BaseScreenHandler.class.getName());
-
+	protected IOErrorHandler errorHandler;
 
 	private Scene scene;
 	private BaseScreenHandler prev;
@@ -29,6 +30,10 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 	protected BaseScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(screenPath);
 		this.stage = stage;
+
+		/*
+		* Example_3*/
+		this.errorHandler = new IOErrorHandler();
 	}
 
 	public void setPreviousScreen(BaseScreenHandler prev) {

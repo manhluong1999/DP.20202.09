@@ -20,16 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5cdb911-4881-4355-9a1d-29aac69e3944" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/AltObservable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/BookDetailScreenHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/CDDetailScreenHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/DVDDetailScreenHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/DetailScreenHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/CartScreenError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/HomeScreenError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/IOErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/IOErrorInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/IOErrorPopup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/IOErrorText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/InvoiceScreenError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/screen/popup/LoginScreenError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/interfaces/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/interfaces/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/screen/ViewsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/screen/ViewsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/screen/BaseScreenHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/screen/BaseScreenHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/screen/home/DVDDetailScreenHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/DVDDetailScreenHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/screen/home/DetailScreenHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/DetailScreenHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/screen/home/HomeScreenHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/HomeScreenHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/screen/home/MediaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/screen/home/MediaHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,7 @@
       <workItem from="1616157307320" duration="1813000" />
       <workItem from="1622161649603" duration="5231000" />
       <workItem from="1622183379972" duration="29000" />
-      <workItem from="1622183428291" duration="22062000" />
+      <workItem from="1622183428291" duration="25032000" />
     </task>
     <servers />
   </component>
@@ -123,10 +126,10 @@
     </state>
     <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1616061007915" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1622166712028" />
-    <state x="-1155" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1622233166036">
+    <state x="-1155" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1622237673133">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1155" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622233166036" />
+    <state x="-1155" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622237673133" />
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1622165933438" />
     <state x="649" y="264" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1622164238009">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -179,6 +182,10 @@
     </state>
     <state width="1877" height="447" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622234540957" />
     <state width="1877" height="447" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1622174010226" />
+    <state x="-1118" y="303" key="JpaSupport:com.ifengxue.plugin.gui.DatabaseSettingsDialog" timestamp="1622236671597">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1118" y="303" key="JpaSupport:com.ifengxue.plugin.gui.DatabaseSettingsDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622236671597" />
     <state x="2294" y="85" key="Maven.ArtifactSearchDialog" timestamp="1616060994003">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
