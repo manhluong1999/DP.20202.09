@@ -3,28 +3,35 @@ package entity.shipping;
 import entity.order.Order;
 import org.example.DistanceCalculator;
 
-public class DeliveryInfo {
+/*
+* DesignPattern: AdapterPattern
+*
+* */
+
+public abstract class DeliveryInfo {
 
     protected String name;
     protected String phone;
     protected String province;
     protected String address;
     protected String shippingInstructions;
-    protected DistanceCalculator distanceCalculator;
+//    protected DistanceCalculator distanceCalculator;
 
-    public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions, DistanceCalculator distanceCalculator) {
+    public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions) {
         this.name = name;
         this.phone = phone;
         this.province = province;
         this.address = address;
         this.shippingInstructions = shippingInstructions;
-        this.distanceCalculator = distanceCalculator;
+//        this.distanceCalculator = distanceCalculator;
     }
-    //stamp coupling vì truyền cả object Order mà ko sử dụng attribute nào
-    public int calculateShippingFee(Order order) {
-        int distance = distanceCalculator.calculateDistance(address, province);
-        return (int) (distance * 1.2);
-    }
+
+    public abstract int calculateShippingFee(Order order);
+//    {
+//        int distance = distanceCalculator.calculateDistance(address, province);
+//        return (int) (distance * 1.2);
+//        return 0;
+//    }
 
     public String getName() {
         return name;

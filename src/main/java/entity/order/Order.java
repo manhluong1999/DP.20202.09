@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// SOLID: Vi pham OCP khi them RushOrder thi phai modify lai code
 public class Order {
 
     private int shippingFees;
@@ -18,6 +17,8 @@ public class Order {
     private int tax;
     private List orderMediaList;
     protected DeliveryInfo deliveryInfo;
+
+    private State state;
 
     public Order() {
         this.shippingFees = 0;
@@ -39,6 +40,26 @@ public class Order {
         this.tax = (int) (ViewsConfig.PERCENT_VAT/100) * subtotal;
     }
 
+    /*
+    * Design Pattern: StatePattern
+    * */
+
+    public void changeState(State state){
+        this.state = state;
+    }
+
+    public void waitProcess() {
+        // do Something here
+    }
+
+    public void cancelProcess() {
+        // do Something here
+    }
+
+    public void successProcess() {
+        // do Something here
+    }
+
     public List getListOrderMedia() {
         return this.orderMediaList;
     }
@@ -51,8 +72,7 @@ public class Order {
     public DeliveryInfo getDeliveryInfo() {
         return deliveryInfo;
     }
-    //SOLID: vi phạm DIP, đồng thời OCP vì khi thay đổi cách thức tính phí ship phụ thuộc vào hàm calculateShippingFee ở class DeliveryInfo
-    // Vi phạm Temporal cohesion vì đồng thời tính fees và lấy thông tin 
+
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
         this.shippingFees = deliveryInfo.calculateShippingFee(this);
