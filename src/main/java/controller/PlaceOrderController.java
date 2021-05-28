@@ -5,7 +5,9 @@ import entity.invoice.Invoice;
 import entity.media.CD;
 import entity.media.Media;
 import entity.order.Order;
+import entity.shipping.AdapterDeliveryInfo;
 import entity.shipping.DeliveryInfo;
+import entity.shipping.DistanceCalculatorAdaptee;
 import org.example.DistanceCalculator;
 
 import java.io.IOException;
@@ -80,13 +82,13 @@ public class PlaceOrderController extends BaseController {
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());
         validateDeliveryInfo(info);
-        DeliveryInfo deliveryInfo = new DeliveryInfo(
+        DeliveryInfo deliveryInfo = new AdapterDeliveryInfo(
                 String.valueOf(info.get("name")),
                 String.valueOf(info.get("phone")),
                 String.valueOf(info.get("province")),
                 String.valueOf(info.get("address")),
                 String.valueOf(info.get("instructions")),
-                new DistanceCalculator());
+                new DistanceCalculatorAdaptee());
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;
     }

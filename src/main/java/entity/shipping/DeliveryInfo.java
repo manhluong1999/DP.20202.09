@@ -18,27 +18,27 @@ import org.example.DistanceCalculator;
  * Solutions: StrategyPattern or Abstract Factory
  * */
 
-public class DeliveryInfo {
+/**
+ * AdapterFactory - Example_4
+ *
+ * */
+public abstract class DeliveryInfo {
 
     protected String name;
     protected String phone;
     protected String province;
     protected String address;
     protected String shippingInstructions;
-    protected DistanceCalculator distanceCalculator;
+//    protected DistanceCalculator distanceCalculator;
 
-    public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions, DistanceCalculator distanceCalculator) {
+    public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions) {
         this.name = name;
         this.phone = phone;
         this.province = province;
         this.address = address;
         this.shippingInstructions = shippingInstructions;
-        this.distanceCalculator = distanceCalculator;
     }
-    public int calculateShippingFee(Order order) {
-        int distance = distanceCalculator.calculateDistance(address, province);
-        return (int) (distance * 1.2);
-    }
+    public abstract int calculateShippingFee(Order order);
 
     public String getName() {
         return name;
