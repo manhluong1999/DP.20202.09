@@ -9,15 +9,19 @@ package entity.payment;
 * Solutions: AbstractFactory or StrategyPattern
 * */
 
+
+/**
+ * Example_5 - Abstract Factory
+ * */
 public class PaymentTransaction {
 	private String errorCode;
-	private CreditCard card;
+	private Card card;
 	private String transactionId;
 	private String transactionContent;
 	private int amount;
 	private String createdAt;
 	
-	public PaymentTransaction(String errorCode, CreditCard card, String transactionId, String transactionContent,
+	public PaymentTransaction(String errorCode, Card card, String transactionId, String transactionContent,
                               int amount, String createdAt) {
 		super();
 		this.errorCode = errorCode;

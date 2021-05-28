@@ -3,6 +3,8 @@ package controller;
 import common.exception.InvalidCardException;
 import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
+import entity.payment.Card;
+import entity.payment.CardFactory;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
@@ -26,6 +28,8 @@ import java.util.Map;
  * Author: Minh
  * Subject: SOLID - OCP, DIP
  * Reason: Khi thêm các ngân hàng mới (bank) , các loại thẻ mới (card) lớp payOrder phải modified và Class giao tiếp qua AbstractClass or Interface
+ * Subject: SRP
+ * Reason: Lớp thực hiện cả việc getExpirationDate()
  * */
 
 /*
@@ -47,12 +51,17 @@ public class PaymentController extends BaseController {
 	/**
 	 * Represent the card used for payment
 	 */
-	private CreditCard card;
+	private Card card;
 
 	/**
 	 * Represent the Interbank subsystem
 	 */
 	private InterbankInterface interbank;
+
+	/**
+	 * Example_5
+	 * */
+	private CardFactory factory;
 
 	/**
 	 * Validate the input date which should be in the format "mm/yy", and then
@@ -69,7 +78,7 @@ public class PaymentController extends BaseController {
 	*
 	* SmellCode
 	* */
-	private String getExpirationDate(String date) throws InvalidCardException {
+	public String getExpirationDate(String date) throws InvalidCardException {
 		String[] strs = date.split("/");
 		if (strs.length != 2) {
 			throw new InvalidCardException();
@@ -122,6 +131,30 @@ public class PaymentController extends BaseController {
 					Integer.parseInt(securityCode));
 
 			this.interbank = new InterbankSubsystem();
+
+			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
+
+			result.put("RESULT", "PAYMENT SUCCESSFUL!");
+			result.put("MESSAGE", "You have successfully paid the order!");
+		} catch (PaymentException | UnrecognizedException ex) {
+			result.put("MESSAGE", ex.getMessage());
+		}
+		return result;
+	}
+
+	public void setFactory(CardFactory factory) {
+		this.factory = factory;
+	}
+
+	public Map<String, String> payOrderRefactor(int amount, String contents, Map<String, Object> model) {
+		Map<String, String> result = new Hashtable<String, String>();
+		result.put("RESULT", "PAYMENT FAILED!");
+		try {
+			this.card = factory.createCard();
+			this.card.setInfo(model);
+
+			this.interbank = new InterbankSubsystem();
+
 			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
 
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");

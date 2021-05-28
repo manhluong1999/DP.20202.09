@@ -2,6 +2,10 @@ package views.screen.payment;
 
 import controller.PaymentController;
 import entity.invoice.Invoice;
+import entity.payment.Card;
+import entity.payment.CardFactory;
+import entity.payment.CreditCard;
+import entity.payment.CreditCardFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +18,7 @@ import views.screen.ViewsConfig;
 import views.screen.popup.PopupScreen;
 
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -44,6 +49,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	@FXML
 	private TextField securityCode;
 
+	private Map<String, Object> model = new Hashtable<>();
 
 	public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
@@ -77,8 +83,31 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";
 		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
-				expirationDate.getText(), securityCode.getText());
+
+		/*
+		* Khi thêm chức năng select Card -> thì gọi phương thức tạo ra Factory Cần thiết với mỗi loại card
+		* Trong TH Không bổ xung thêm tính năng mới -> Coi như ta tạo ra CreditCardFactory
+		* */
+		/*
+		 * => Thông tin gửi vào payOrder phải là một cái model chung
+		 * Nếu có sửa theo select => sửa ở Class View thôi
+		 * */
+		CardFactory cardFactory = new CreditCardFactory();
+		ctrl.setFactory(cardFactory);
+		Map<String, String> response = new Hashtable<>();
+		try {
+			model.put("cardCode", cardNumber.getText());
+			model.put("owner", holderName.getText());
+			model.put("dateExpired", ctrl.getExpirationDate(expirationDate.getText()));
+			model.put("cvvCode", Integer.parseInt(securityCode.getText()));
+			response = ctrl.payOrderRefactor(invoice.getAmount(), contents, model);
+		}catch (Exception exception){
+			response.put("RESULT", "PAYMENT FAILED!");
+			response.put("MESSAGE", exception.getMessage());
+		}
+//
+//		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
+//				expirationDate.getText(), securityCode.getText());
 
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);
 		resultScreen.setPreviousScreen(this);

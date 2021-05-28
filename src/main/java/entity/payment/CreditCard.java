@@ -1,9 +1,11 @@
 package entity.payment;
 
+import java.util.Map;
+
 /**
  * @author
  */
-public class CreditCard {
+public class CreditCard implements Card{
 
     private String cardCode;
     private String owner;
@@ -15,5 +17,20 @@ public class CreditCard {
         this.owner = owner;
         this.dateExpired = dateExpired;
         this.cvvCode = cvvCode;
+    }
+
+    public CreditCard() {}
+
+    @Override
+    public String print() {
+        return "Credit_Card";
+    }
+
+    @Override
+    public void setInfo(Map<String, Object> info) {
+        this.cardCode = (String) info.get("cardCode");
+        this.owner = (String) info.get("owner");
+        this.dateExpired = (String) info.get("dateExpired");
+        this.cvvCode = (int) info.get("cvvCode");
     }
 }
