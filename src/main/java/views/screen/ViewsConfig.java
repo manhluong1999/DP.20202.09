@@ -28,6 +28,10 @@ public class ViewsConfig {
     public static final String HOME_MEDIA_PATH = "/views/fxml/media_home.fxml";
     public static final String POPUP_PATH = "/views/fxml/popup.fxml";
 
+    public static final String BOOK_DETAIL_PATH = "/views/fxml/book.fxml";
+    public static final String DVD_DETAIL_PATH = "/views/fxml/dvd.fxml";
+    public static final String CD_DETAIL_PATH = "/views/fxml/cd.fxml";
+
     public static float PERCENT_VAT = 10;
 
     public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);

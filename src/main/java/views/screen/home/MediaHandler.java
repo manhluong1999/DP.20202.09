@@ -25,7 +25,7 @@ import views.screen.FXMLScreenHandler;
 import views.screen.ViewsConfig;
 import views.screen.popup.PopupScreen;
 
-public class MediaHandler extends FXMLScreenHandler implements Observable {
+public class MediaHandler extends FXMLScreenHandler implements AltObservable {
 
     @FXML
     protected ImageView mediaImage;
@@ -45,6 +45,10 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
     @FXML
     protected Button addToCartBtn;
 
+    @FXML
+    protected Button watchDetail;
+
+
     private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());
     private Media media;
     private List<Observer> observerList;
@@ -56,12 +60,21 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
         addToCartBtn.setOnMouseClicked(event -> {
             notifyObservers();
         });
+        // ===> Vì chưa yêu cầu sửa giao diện nên tạm thời chỗ này comment vào
+//        watchDetail.setOnMouseClicked(event -> {
+//            // Render DetailScreen flow media_type
+//            notifyWatchDetail();
+//        });
+
+
         setMediaInfo();
     }
+
 
     Media getMedia(){
         return media;
     }
+
     int getRequestQuantity() {
         return spinnerChangeNumber.getValue();
     }
@@ -98,4 +111,9 @@ public class MediaHandler extends FXMLScreenHandler implements Observable {
     public void notifyObservers() {
         observerList.forEach(observer -> observer.update(this));
     }
+    @Override
+    public void notifyWatchDetail() {
+        observerList.forEach(observer -> observer.watchDetail(this));
+    }
+
 }

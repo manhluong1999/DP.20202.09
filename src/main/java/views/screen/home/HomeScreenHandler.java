@@ -93,7 +93,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         return (HomeController) super.getBController();
     }
 
-    // Stamp coupling. Truyen ca doi tuong dto nhung khong su dung
     protected void setupData(Object dto) throws Exception {
         setBController(new HomeController());
         this.authenticationController = new AuthenticationController();
@@ -215,6 +214,16 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         if (observable instanceof MediaHandler) update((MediaHandler) observable);
     }
 
+    @Override
+    public void watchDetail(Observable observable) {
+        if (observable instanceof MediaHandler) watchDetail((MediaHandler) observable);
+    }
+
+    @Override
+    public void updateCartFromDetail(Observable observable) {
+        if (observable instanceof DetailScreenHandler) update(((DetailScreenHandler) observable).getMediaHandler());
+    }
+
     private void update(MediaHandler mediaHandler) {
         int requestQuantity = mediaHandler.getRequestQuantity();
         Media media = mediaHandler.getMedia();
@@ -248,6 +257,40 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         } catch (Exception exp) {
             LOGGER.severe("Cannot add media to cart: ");
             exp.printStackTrace();
+        }
+    }
+
+    // Control -> Điều hướng trang detail (Chấp nhận được vì)
+    private void watchDetail(MediaHandler mediaHandler) {
+        Media media = mediaHandler.getMedia();
+        try {
+            switch (media.getType()){
+                case "dvd": {
+                    DetailScreenHandler detailScreenHandler = new DVDDetailScreenHandler(this.stage, ViewsConfig.DVD_DETAIL_PATH, mediaHandler);
+                    detailScreenHandler.setHomeScreenHandler(this);
+                    detailScreenHandler.setBController(getBController());
+                    detailScreenHandler.show();
+                    break;
+                }
+                case "cd": {
+                    DetailScreenHandler detailScreenHandler = new CDDetailScreenHandler(this.stage, ViewsConfig.CD_DETAIL_PATH, mediaHandler);
+                    detailScreenHandler.setHomeScreenHandler(this);
+                    detailScreenHandler.setBController(getBController());
+                    detailScreenHandler.show();
+                    break;
+                }
+                case "book": {
+                    DetailScreenHandler detailScreenHandler = new BookDetailScreenHandler(this.stage, ViewsConfig.BOOK_DETAIL_PATH, mediaHandler);
+                    detailScreenHandler.setHomeScreenHandler(this);
+                    detailScreenHandler.setBController(getBController());
+                    detailScreenHandler.show();
+                    break;
+                }
+                default:
+                    throw new Exception("Type Not Exits");
+            }
+        }catch (Exception exception){
+            // Exception
         }
     }
 
