@@ -21,3 +21,6 @@ Hoàng Trọng Minh: 4, 5, 6, 9, 11, 12
 Lương Tiến Mạnh: 3, 7, 8, 11
 Đỗ Hoàng Nam: 1, 2, 11
 Hoàng Văn Manh: 1, 2, 10, 11
+
+===========================================================
+Link video: https://drive.google.com/drive/folders/1nyGwiS60EmSfMVtc7dPMT6C9U7_ECYUd
