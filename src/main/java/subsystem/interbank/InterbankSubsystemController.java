@@ -23,7 +23,7 @@ public class InterbankSubsystemController {
 	private static InterbankPayloadConverter interbankPayloadConverter = new InterbankPayloadConverter();
 	private static InterbankBoundary interbankBoundary = new InterbankBoundary();
 
-	public PaymentTransaction refund(CreditCard card, int amount, String contents) {
+	public PaymentTransaction refund(Card card, int amount, String contents) {
 		return null;
 	}
 
