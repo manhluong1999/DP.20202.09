@@ -8,6 +8,8 @@ import entity.order.Order;
 import entity.shipping.AdapterDeliveryInfo;
 import entity.shipping.DeliveryInfo;
 import entity.shipping.DistanceCalculatorAdaptee;
+import entity.shipping.ShippingFeeCalculatorAdaptee1;
+
 import org.example.DistanceCalculator;
 
 import java.io.IOException;
@@ -88,7 +90,9 @@ public class PlaceOrderController extends BaseController {
                 String.valueOf(info.get("province")),
                 String.valueOf(info.get("address")),
                 String.valueOf(info.get("instructions")),
-                new DistanceCalculatorAdaptee());
+                new DistanceCalculatorAdaptee(),
+                new ShippingFeeCalculatorAdaptee1()
+                );
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;
     }
@@ -108,7 +112,7 @@ public class PlaceOrderController extends BaseController {
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() != 10) return false;
+        if (phoneNumber.length() != Constant.MAX_LENGTH_PHONE) return false;
         if (!phoneNumber.startsWith("0")) return false;
         try {
             Integer.parseInt(phoneNumber);
