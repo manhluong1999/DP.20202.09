@@ -8,16 +8,16 @@ Các công việc :
 5. Thêm AudioBook
 6. Thêm chức năng xem chi tiết sản phẩm
 7. Thêm Hiện thị lỗi Exception
-8. Thêm cách tính khoảng cách mới
+8. Thêm cách tính khoảng cách mới,cách tính phí ship mới
 9. Thêm vào hình thức thanh toán mới DebitCard
 10. Thêm chức năng hủy đơn hàng
 11. Refactor code
 12. Vẽ usecase
 
 ===========================================================
-Phân chi công việc:
+Phân chia công việc:
 
 Hoàng Trọng Minh: 4, 5, 6, 9, 11, 12 
-Lương Tiến Manh:
-Đỗ Hoàng Nam:
-Hoàng Văn Manh: 
+Lương Tiến Mạnh: 3, 7, 8, 11
+Đỗ Hoàng Nam: 1, 2, 11
+Hoàng Văn Manh: 1, 2, 10, 11
