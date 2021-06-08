@@ -85,22 +85,28 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		PaymentController ctrl = (PaymentController) getBController();
 
 		/*
-		* Khi thêm chức năng select Card -> thì gọi phương thức tạo ra Factory Cần thiết với mỗi loại card
-		* Trong TH Không bổ xung thêm tính năng mới -> Coi như ta tạo ra CreditCardFactory
+		* Select các option thanh toán -> Khởi tạo đối tượng hình thức thanh toán
 		* */
-		/*
-		 * => Thông tin gửi vào payOrder phải là một cái model chung
-		 * Nếu có sửa theo select => sửa ở Class View thôi
-		 * */
-		CardFactory cardFactory = new CreditCardFactory();
-		ctrl.setFactory(cardFactory);
+
 		Map<String, String> response = new Hashtable<>();
 		try {
 			model.put("cardCode", cardNumber.getText());
 			model.put("owner", holderName.getText());
 			model.put("dateExpired", ctrl.getExpirationDate(expirationDate.getText()));
 			model.put("cvvCode", Integer.parseInt(securityCode.getText()));
-			response = ctrl.payOrderRefactor(invoice.getAmount(), contents, model);
+
+			/**
+			 * if (option) {
+			 *
+			 * }else{
+			 *
+			 * }
+			 *
+			 */
+
+			CreditCard card = new CreditCard(cardNumber.getText(), holderName.getText(), ctrl.getExpirationDate(expirationDate.getText()), Integer.parseInt(securityCode.getText()));
+
+			response = ctrl.payOrderRefactor(invoice.getAmount(), contents, card);
 		}catch (Exception exception){
 			response.put("RESULT", "PAYMENT FAILED!");
 			response.put("MESSAGE", exception.getMessage());

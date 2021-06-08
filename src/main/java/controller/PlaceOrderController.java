@@ -108,7 +108,7 @@ public class PlaceOrderController extends BaseController {
     }
     
     public boolean validatePhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() != 10) return false;
+        if (phoneNumber.length() != Constant.MAX_LENGTH_PHONE) return false;
         if (!phoneNumber.startsWith("0")) return false;
         try {
             Integer.parseInt(phoneNumber);

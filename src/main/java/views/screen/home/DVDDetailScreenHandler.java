@@ -13,6 +13,5 @@ public class DVDDetailScreenHandler extends DetailScreenHandler{
     @Override
     void setContent() {
         System.out.println("Content DVD");
-        
     }
 }

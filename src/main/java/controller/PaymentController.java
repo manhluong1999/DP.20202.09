@@ -80,7 +80,7 @@ public class PaymentController extends BaseController {
 	* */
 	public String getExpirationDate(String date) throws InvalidCardException {
 		String[] strs = date.split("/");
-		if (strs.length != 2) {
+		if (strs.length != Constant.MAX_LENGTH_DATE) {
 			throw new InvalidCardException();
 		}
 
@@ -91,7 +91,7 @@ public class PaymentController extends BaseController {
 		try {
 			month = Integer.parseInt(strs[0]);
 			year = Integer.parseInt(strs[1]);
-			if (month < 1 || month > 12 || year < Calendar.getInstance().get(Calendar.YEAR) % 100 || year > 100) {
+			if (month < Constant.MIN_MONTH || month > Constant.MAX_MONTH || year < Calendar.getInstance().get(Calendar.YEAR) % Constant.ONE_HUNDRED || year > Constant.ONE_HUNDRED) {
 				throw new InvalidCardException();
 			}
 			expirationDate = strs[0] + strs[1];
@@ -146,12 +146,10 @@ public class PaymentController extends BaseController {
 		this.factory = factory;
 	}
 
-	public Map<String, String> payOrderRefactor(int amount, String contents, Map<String, Object> model) {
+	public Map<String, String> payOrderRefactor(int amount, String contents, Card Card) {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {
-			this.card = factory.createCard();
-			this.card.setInfo(model);
 
 			this.interbank = new InterbankSubsystem();
 
